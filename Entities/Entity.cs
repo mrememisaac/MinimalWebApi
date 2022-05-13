@@ -1,11 +1,14 @@
 namespace MinimalWebApi.Entities;
 
-public class Entity
+public abstract class Entity
 {
-    public Guid Id { get; }
+    /// <summary>
+    /// Unique Identifier for every Entity in our application domain
+    /// </summary>
+    /// <value></value>
+    public Guid Id { get; protected set; }
 
-    public Entity(Guid id)
-    {
-        Id = id == Guid.Empty ? Guid.NewGuid() : id;
-    }
+    public string CreatedBy { get; set; } = string.Empty;
+
+    public DateTimeOffset DateCreated { get; set; }
 }
