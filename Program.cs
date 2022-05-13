@@ -26,13 +26,9 @@ app.UseHttpsRedirection();
 app.MapGet("/products", async (IProductRepository repository) =>
 {
     var products = await repository.List();
-    return products.Select(p => p.Convert());
+    return Results.Ok(products.Select(p => p.Convert()));
 })
+.Produces<IEnumerable<MinimalWebApi.Models.Product>>(StatusCodes.Status200OK)
 .WithName("GetProducts");
 
 app.Run();
-
-record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
