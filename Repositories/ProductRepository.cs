@@ -19,10 +19,10 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public async Task<IEnumerable<Product>> List(int page = 1, int numberOfRecords = 50)
+    public async Task<IEnumerable<Product>> List(int page = 0, int numberOfRecords = 100)
     {
         page = page < 0 ? 0 : page;
         numberOfRecords = Math.Min(numberOfRecords, 100);
-        return dbContext.Products.Skip(page).Take(numberOfRecords).AsEnumerable();
+        return dbContext.Products.OrderBy(x => x.Id).Skip(page * numberOfRecords).Take(numberOfRecords).AsEnumerable();
     }
 }
