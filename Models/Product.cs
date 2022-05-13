@@ -10,5 +10,7 @@ public class Product
 
     public int Price { get; set; }
 
+    public string CreatedBy { get; set; } = string.Empty;
+
     public List<Picture> Pictures { get; set; } = new List<Picture>();
 }
