@@ -4,7 +4,7 @@ using MinimalWebApi.Entities;
 
 public interface IProductRepository
 {
-    Task<IEnumerable<Product>> List(int page = 1, int numberOfRecords = 50);
+    Task<IEnumerable<Product>> List(int page = 0, int numberOfRecords = 100);
 
     Task<Product> Add(Product product);
 }
