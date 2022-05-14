@@ -7,4 +7,6 @@ public class Picture
     public string Base64String { get; set; } = string.Empty;
 
     public Guid ProductId { get; set; }
+
+    public string CreatedBy { get; set; } = string.Empty;
 }
