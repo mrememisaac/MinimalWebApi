@@ -1,10 +1,17 @@
-namespace MinimalWebApi.Repositories;
+namespace ProductsApi.Repositories;
 
-using MinimalWebApi.Entities;
+using ProductsApi.Entities;
 
 public interface IProductRepository
 {
-    Task<IEnumerable<Product>> List(int page = 0, int numberOfRecords = 100);
+    Task<List<Product>> List(int page = 0, int numberOfRecords = 100, CancellationToken cancellationToken = default);
 
-    Task<Product> Add(Product product);
+    Task<Product> Add(Product product, CancellationToken cancellationToken);
+
+    Task<Product> GetById(Guid id, CancellationToken cancellationToken);
+
+    Task Update(Product product, CancellationToken cancellationToken);
+    
+    Task<Product> Delete(Guid id, CancellationToken cancellationToken);
+
 }
