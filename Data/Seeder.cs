@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using MinimalWebApi.Entities;
+using ProductsApi.Entities;
 
-namespace MinimalWebApi.Data;
+namespace ProductsApi.Data;
 
 public static class Seeder
 {

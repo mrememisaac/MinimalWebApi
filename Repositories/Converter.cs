@@ -1,4 +1,4 @@
-namespace MinimalWebApi.Repositories;
+namespace ProductsApi.Repositories;
 
 public static class Converter
 {

@@ -1,4 +1,4 @@
-namespace MinimalWebApi.Models;
+namespace ProductsApi.Models;
 
 public class Picture
 {

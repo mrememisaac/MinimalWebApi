@@ -1,4 +1,4 @@
-namespace MinimalWebApi.Entities;
+namespace ProductsApi.Entities;
 
 public sealed class Product : Entity
 {

@@ -1,7 +1,7 @@
-namespace MinimalWebApi.Data;
+namespace ProductsApi.Data;
 
 using Microsoft.EntityFrameworkCore;
-using MinimalWebApi.Entities;
+using ProductsApi.Entities;
 
 public class ApplicationDbContext : DbContext
 {

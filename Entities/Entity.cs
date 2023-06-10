@@ -1,4 +1,4 @@
-namespace MinimalWebApi.Entities;
+namespace ProductsApi.Entities;
 
 public abstract class Entity
 {

@@ -1,4 +1,4 @@
-namespace MinimalWebApi.Models;
+namespace ProductsApi.Models;
 
 public class Product
 {
@@ -12,5 +12,5 @@ public class Product
 
     public string CreatedBy { get; set; } = string.Empty;
 
-    public List<Picture> Pictures { get; set; } = new List<Picture>();
+    public Picture Picture { get; set; }
 }

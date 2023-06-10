@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MinimalWebApi.Data;
+using ProductsApi.Data;
 
 #nullable disable
 
-namespace MinimalWebApi.Migrations
+namespace ProductsApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20220513170029_AddAuditFieldsToEntities")]
@@ -19,7 +19,7 @@ namespace MinimalWebApi.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
 
-            modelBuilder.Entity("MinimalWebApi.Entities.Picture", b =>
+            modelBuilder.Entity("ProductsApi.Entities.Picture", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,7 +48,7 @@ namespace MinimalWebApi.Migrations
                     b.ToTable("Pictures", (string)null);
                 });
 
-            modelBuilder.Entity("MinimalWebApi.Entities.Product", b =>
+            modelBuilder.Entity("ProductsApi.Entities.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -108,9 +108,9 @@ namespace MinimalWebApi.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MinimalWebApi.Entities.Picture", b =>
+            modelBuilder.Entity("ProductsApi.Entities.Picture", b =>
                 {
-                    b.HasOne("MinimalWebApi.Entities.Product", "Product")
+                    b.HasOne("ProductsApi.Entities.Product", "Product")
                         .WithMany("PicturesCollection")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -119,7 +119,7 @@ namespace MinimalWebApi.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("MinimalWebApi.Entities.Product", b =>
+            modelBuilder.Entity("ProductsApi.Entities.Product", b =>
                 {
                     b.Navigation("PicturesCollection");
                 });
