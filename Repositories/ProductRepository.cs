@@ -20,7 +20,7 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public async Task<List<Product>> List(int page = 0, int numberOfRecords = 100, CancellationToken cancellationToken)
+    public async Task<List<Product>> List(int page = 0, int numberOfRecords = 100, CancellationToken cancellationToken = default)
     {
         page = page < 0 ? 0 : page;
         numberOfRecords = Math.Min(numberOfRecords, 100);
