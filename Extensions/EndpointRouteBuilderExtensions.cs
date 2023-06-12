@@ -1,4 +1,5 @@
-﻿using ProductsApi.EndpointHandlers;
+﻿using ProductsApi.EndpointFilters;
+using ProductsApi.EndpointHandlers;
 
 namespace ProductsApi.Extensions
 {
@@ -20,12 +21,14 @@ namespace ProductsApi.Extensions
                 .WithName("DeleteProduct");
 
             productsWithGuidEndpoints.MapPut("", ProductsHandler.UpdateProduct)
+                .AddEndpointFilter<UpdateProductAnnotationsValidationFilter>()
                 .Produces<ProductsApi.Models.Product>(StatusCodes.Status500InternalServerError)
                 .Produces<ProductsApi.Models.Product>(StatusCodes.Status400BadRequest)
                 .Produces<ProductsApi.Models.Product>(StatusCodes.Status204NoContent)
                 .WithName("UpdateProduct");
 
             productsEndpoints.MapPost("", ProductsHandler.CreateProduct)
+                .AddEndpointFilter<CreateProductAnnotationsValidationFilter>()
                 .Produces<ProductsApi.Models.Product>(StatusCodes.Status500InternalServerError)
                 .Produces<ProductsApi.Models.Product>(StatusCodes.Status400BadRequest)
                 .Produces<ProductsApi.Models.Product>(StatusCodes.Status201Created)
