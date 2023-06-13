@@ -17,6 +17,12 @@ builder.Services.AddCors();
 
 builder.Services.AddProblemDetails();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAuthentication().AddJwtBearer();
+builder.Services.AddAuthorization();
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("ProductCreator", policy => policy.RequireRole("ProductCreator"))
+    .AddPolicy("ProductUpdater", policy => policy.RequireRole("ProductUpdater"))
+    .AddPolicy("ProductDeleter", policy => policy.RequireRole("ProductDeleter"));
 
 var app = builder.Build();
 
@@ -36,6 +42,9 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.RegisterProductEndpoints();
 
